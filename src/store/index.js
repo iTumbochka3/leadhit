@@ -3,17 +3,13 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
     state: {
-        count: 0
+        websiteIdLength: 24
     },
-    mutations: {
-        increment(state) {
-            state.count++
-        }
+    getters: {
+        getWebsiteIdLength: state => {
+            return state.websiteIdLength;
+        },
     }
-})
-
-export default new Vuex({
-    store
 });
