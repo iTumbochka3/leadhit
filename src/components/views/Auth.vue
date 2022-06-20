@@ -37,6 +37,11 @@ export default {
       return this.$store.getters.getWebsiteIdLength;
     },
   },
+  mounted() {
+    if(localStorage.getItem('leadhit-site-id')) {
+      this.$router.push({ name: 'analytics' });
+    }
+  },
   methods: {
     counter(value) {
       return value.length == this.websiteIdLength || `id сайта должен содержать ${this.websiteIdLength} символа`;
@@ -53,7 +58,7 @@ export default {
         })
           .then((response) => {
             console.log('successful', response.data);
-            localStorage['leadhit-site-id'] = '5f8475902b0be670555f1bb3';
+            localStorage.setItem('leadhit-site-id', '5f8475902b0be670555f1bb3');
             this.$router.push({ name: 'analytics' });
           })
           .catch((error) => {
