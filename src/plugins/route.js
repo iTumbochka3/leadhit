@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: '/', component: AuthPage },
-  { path: '/analytics', component: AnalyticsPage },
+  { path: '/analytics', name: 'analytics', component: AnalyticsPage, },
 ];
 
 export default new VueRouter({

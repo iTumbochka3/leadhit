@@ -51,11 +51,16 @@ export default {
             'leadhit-site-Id': this.websiteId,
           }
         })
-          .then(function (response) {
-            console.log('successful', response.data.message);
+          .then((response) => {
+            console.log('successful', response.data);
+            localStorage['leadhit-site-id'] = '5f8475902b0be670555f1bb3';
+            this.$router.push({ name: 'analytics' });
           })
-          .catch(function (error) {
+          .catch((error) => {
             console.log('error', error);
+          })
+          .finally(() => {
+            this.loading = false;
           });
       }
     },
