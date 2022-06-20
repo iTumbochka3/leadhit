@@ -26,6 +26,7 @@ export default {
     return {
       loading: false,
       inputText: 'id сайта',
+      websiteIdLength: 24,
       websiteId: '5f8475902b0be670555f1bb3',
       rules: {
         required: value => !!value || 'Обязательное поле.',
@@ -33,13 +34,13 @@ export default {
     }
   },
   computed: {
-    websiteIdLength() {
-      return this.$store.getters.getWebsiteIdLength;
+    apiKey() {
+      return this.$store.getters.getApiKey;
     },
   },
   mounted() {
     document.title = 'LeadHit';
-    if(localStorage.getItem('leadhit-site-id')) {
+    if (localStorage.getItem('leadhit-site-id')) {
       this.$router.push({ name: 'analytics' });
     }
   },
@@ -53,7 +54,7 @@ export default {
 
         axios.get('https://track-api.leadhit.io/client/test_auth', {
           headers: {
-            'api-key': '5f8475902b0be670555f1bb3:eEZn8u05G3bzRpdL7RiHCvrYAYo',
+            'api-key': this.apiKey,
             'leadhit-site-Id': this.websiteId,
           }
         })

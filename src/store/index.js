@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        websiteIdLength: 24,
+        apiKey: '5f8475902b0be670555f1bb3:eEZn8u05G3bzRpdL7RiHCvrYAYo',
         graphicData: [
             { "date": "2020-07-01", "visits": 213 },
             { "date": "2020-07-02", "visits": 249 },
@@ -39,8 +39,8 @@ export default new Vuex.Store({
         ],
     },
     getters: {
-        getWebsiteIdLength: state => {
-            return state.websiteIdLength;
+        getApiKey: state => {
+            return state.apiKey;
         },
         getGraphicData: state => {
             return state.graphicData;
