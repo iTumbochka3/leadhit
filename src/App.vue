@@ -14,3 +14,9 @@ export default {
   name: 'App',
 };
 </script>
+
+<style>
+.container {
+  height: 100%;
+}
+</style>

@@ -38,6 +38,7 @@ export default {
     },
   },
   mounted() {
+    document.title = 'LeadHit';
     if(localStorage.getItem('leadhit-site-id')) {
       this.$router.push({ name: 'analytics' });
     }
@@ -58,7 +59,7 @@ export default {
         })
           .then((response) => {
             console.log('successful', response.data);
-            localStorage.setItem('leadhit-site-id', '5f8475902b0be670555f1bb3');
+            localStorage.setItem('leadhit-site-id', this.websiteId);
             this.$router.push({ name: 'analytics' });
           })
           .catch((error) => {

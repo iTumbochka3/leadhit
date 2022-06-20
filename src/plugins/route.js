@@ -7,7 +7,7 @@ import AnalyticsPage from '../components/views/Analytics.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: AuthPage },
+  { path: '/', name: 'auth', component: AuthPage },
   { path: '/analytics', name: 'analytics', component: AnalyticsPage, },
 ];
 
