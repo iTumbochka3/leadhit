@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   name: 'AuthPage',
@@ -51,13 +50,7 @@ export default {
     login() {
       if (this.websiteId.length == this.websiteIdLength) {
         this.loading = true;
-
-        axios.get('https://track-api.leadhit.io/client/test_auth', {
-          headers: {
-            'api-key': this.apiKey,
-            'leadhit-site-Id': this.websiteId,
-          }
-        })
+        this.$store.dispatch('login', { password: this.websiteId })
           .then((response) => {
             console.log('successful', response.data);
             localStorage.setItem('leadhit-site-id', this.websiteId);
