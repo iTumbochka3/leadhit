@@ -11,6 +11,14 @@ const routes = [
   { path: '/analytics', name: 'analytics', component: AnalyticsPage, },
 ];
 
-export default new VueRouter({
-  routes
+const router = new VueRouter({ routes });
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'auth' && !localStorage.getItem('leadhit-site-id')) {
+    next({ name: 'auth' });
+  } else { 
+    next(); 
+  }
 });
+
+export default router;

@@ -61,9 +61,6 @@ export default {
   },
   mounted() {
     document.title = 'Аналитика';
-    if (!localStorage.getItem('leadhit-site-id')) {
-      this.$router.push({ name: 'auth' });
-    }
     this.createChart();
   },
   beforeDestroy() {

@@ -39,9 +39,6 @@ export default {
   },
   mounted() {
     document.title = 'LeadHit';
-    if (localStorage.getItem('leadhit-site-id')) {
-      this.$router.push({ name: 'analytics' });
-    }
   },
   methods: {
     counter(value) {
